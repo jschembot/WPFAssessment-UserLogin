@@ -15,6 +15,15 @@ namespace WPFAssessment.UI.Data
         {
             _contextCreator = contextCreator;
         }
+
+        public async Task<UserLogin> GetByIdAsync(int userId)
+        {
+            using (var context = _contextCreator())
+            {
+                return await context.UsersLogins.SingleAsync(x => x.UserLoginId == userId);
+            }
+        }
+
         public async Task<List<UserLogin>> GetAllAsync()
         {
             using(var context = _contextCreator())

@@ -4,10 +4,8 @@ using WPFAssessment.Model;
 
 namespace WPFAssessment.UI.Data
 {
-    public interface IUserDataService
+    public interface IUserLookupDataService
     {
-        Task<List<UserLogin>> GetAllAsync();
-        Task<UserLogin> GetByIdAsync(int userId);
-
+        Task<IEnumerable<LookupItem>> GetUserLookupAsync();
     }
 }
