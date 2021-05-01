@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using WPFAssessment.DataAccess;
 using WPFAssessment.Model;
 
@@ -13,11 +15,11 @@ namespace WPFAssessment.UI.Data
         {
             _contextCreator = contextCreator;
         }
-        public IEnumerable<UserLogin> GetAll()
+        public async Task<List<UserLogin>> GetAllAsync()
         {
             using(var context = _contextCreator())
             {
-                return context.UsersLogins.ToList();
+                return await context.UsersLogins.ToListAsync();
             }
 
             // TODO: Load data from db context;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using WPFAssessment.Model;
 using WPFAssessment.UI.Data;
 
@@ -16,9 +17,9 @@ namespace WPFAssessment.UI.ViewModel
             _userDataService = userDataService;
         }
 
-        public void Load()
+        public async Task LoadAsync()
         {
-            var users = _userDataService.GetAll();
+            var users = await _userDataService.GetAllAsync();
             // In case Load() is called twice so we don't see duplicates.
             Users.Clear();
             foreach (var user in users)

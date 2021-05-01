@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using WPFAssessment.UI.ViewModel;
 
@@ -13,12 +14,13 @@ namespace WPFAssessment.UI
             InitializeComponent();
             _viewModel = viewModel;
             DataContext = viewModel;
-            Loaded += MainWindow_Loaded;
+            Loaded += MainWindow_LoadedAsync;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void MainWindow_LoadedAsync(object sender, RoutedEventArgs e)
         {
-            _viewModel.Load();
+            await _viewModel.LoadAsync();
         }
+
     }
 }
