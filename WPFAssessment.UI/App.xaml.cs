@@ -1,14 +1,6 @@
 ﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
-using WPFAssessment.UI.Data;
 using WPFAssessment.UI.Startup;
-using WPFAssessment.UI.ViewModel;
 
 namespace WPFAssessment.UI
 {
