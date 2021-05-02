@@ -25,5 +25,11 @@ namespace WPFAssessment.UI
 
             mainWindow.Show();
         }
+
+        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show("Unexted error. Please tell Jon about this!");
+            e.Handled = true;
+        }
     }
 }

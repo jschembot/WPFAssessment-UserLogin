@@ -2,6 +2,7 @@
 using WPFAssessment.DataAccess;
 using WPFAssessment.UI.Data;
 using WPFAssessment.UI.ViewModel;
+using Prism.Events;
 
 namespace WPFAssessment.UI.Startup
 {
@@ -10,6 +11,9 @@ namespace WPFAssessment.UI.Startup
         public IContainer Bootstrap()
         {
             var builder = new ContainerBuilder();
+
+            builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
+
             builder.RegisterType<UserLoginDbContext>().AsSelf();
 
             builder.RegisterType<MainWindow>().AsSelf();

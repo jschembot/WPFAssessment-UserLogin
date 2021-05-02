@@ -37,5 +37,15 @@ namespace WPFAssessment.UI.Data
             //yield return new UserLogin { FirstName = "Mitchell", LastName = "Dieckhoff", EmailID = "mitch.dieck@gmail.com"};
             //yield return new UserLogin { FirstName = "Kyle", LastName = "McKillup", EmailID = "kyle.mckillup@gmail.com"};
         }
+
+        public async Task SaveAsync(UserLogin user)
+        {
+            using(var context = _contextCreator())
+            {
+                context.UsersLogins.Attach(user);
+                context.Entry(user).State = EntityState.Modified;
+                await context.SaveChangesAsync();
+            }
+        }
     }
 }

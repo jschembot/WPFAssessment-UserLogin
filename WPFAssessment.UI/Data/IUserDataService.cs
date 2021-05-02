@@ -8,6 +8,6 @@ namespace WPFAssessment.UI.Data
     {
         Task<List<UserLogin>> GetAllAsync();
         Task<UserLogin> GetByIdAsync(int userId);
-
+        Task SaveAsync(UserLogin user);
     }
 }
